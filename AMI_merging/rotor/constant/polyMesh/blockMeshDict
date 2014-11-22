@@ -1,0 +1,102 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1;
+
+vertices
+(
+    (0 0 0.1)      //v0 ~rotor_stator_interface_top
+    (1.53080849893e-16 2.5 0.1)      //v1 ~rotor_stator_interface_top
+    (-2.16506350946 1.25 0.1)      //v2 ~rotor_stator_interface_top
+    (-2.16506350946 -1.25 0.1)      //v3 ~rotor_stator_interface_top
+    (-2.67968859893e-15 -2.5 0.1)      //v4 ~rotor_stator_interface_top
+    (2.16506350946 -1.25 0.1)      //v5 ~rotor_stator_interface_top
+    (2.16506350946 1.25 0.1)      //v6 ~rotor_stator_interface_top
+    (0 0 -0.1)     //v6 ~rotor_stator_interface_bottom
+    (1.53080849893e-16 2.5 -0.1)     //v7 ~rotor_stator_interface_bottom
+    (-2.16506350946 1.25 -0.1)     //v8 ~rotor_stator_interface_bottom
+    (-2.16506350946 -1.25 -0.1)     //v9 ~rotor_stator_interface_bottom
+    (-2.67968859893e-15 -2.5 -0.1)     //v10 ~rotor_stator_interface_bottom
+    (2.16506350946 -1.25 -0.1)     //v11 ~rotor_stator_interface_bottom
+    (2.16506350946 1.25 -0.1)     //v12 ~rotor_stator_interface_bottom
+);
+
+blocks
+(
+    hex (0 0 7 7 2 1 8 9) (10 1 10) simpleGrading ( 1 1 1) //b1 ~rotor
+    hex (0 0 7 7 3 2 9 10) (10 1 10) simpleGrading ( 1 1 1) //b2 ~rotor
+    hex (0 0 7 7 4 3 10 11) (10 1 10) simpleGrading ( 1 1 1) //b3 ~rotor
+    hex (0 0 7 7 5 4 11 12) (10 1 10) simpleGrading ( 1 1 1) //b4 ~rotor
+    hex (0 0 7 7 6 5 12 13) (10 1 10) simpleGrading ( 1 1 1) //b5 ~rotor
+    hex (0 0 7 7 1 6 13 8) (10 1 10) simpleGrading (1 1 1)  //b12 ~rotor
+);
+
+edges
+(
+    arc 1 2 (-2.5 1.41638472441e-15 0.1)     //e1
+    arc 2 3 (-1.25 -2.16506350946 0.1)     //e2
+    arc 3 4 (1.25 -2.16506350946 0.1)     //e3
+    arc 4 5 (2.5 -2.83276944882e-15 0.1)     //e4
+    arc 5 6 (1.25 2.16506350946 0.1)     //e5
+    arc 6 1 (1.25 2.16506350946 0.1)     //e6
+    arc 8 9 (-1.25 2.16506350946 -0.1)     //e7
+    arc 9 10 (-2.5 1.41638472441e-15 -0.1)     //e8
+    arc 10 11 (-1.25 -2.16506350946 -0.1)     //e9
+    arc 11 12 (1.25 -2.16506350946 -0.1)     //e10
+    arc 12 13 (2.5 -2.83276944882e-15 -0.1)     //e11
+    arc 13 8 (1.25 2.16506350946 -0.1)     //e12
+);
+
+boundary
+(
+
+    couple1
+    {
+        type     patch;
+
+        faces
+        (
+            (9 8 1 2) // rotor_face1
+            (10 9 2 3) // rotor_face2
+            (11 10 3 4) // rotor_face3
+            (12 11 4 5) // rotor_face4
+            (13 12 5 6) // rotor_face5
+            (8 13 6 1) // rotor_face6
+        );
+    }
+
+    frontandback
+    {
+        type empty;
+        faces
+        (
+            (0 0 1 2)     // rotor_front_face0
+            (0 0 2 3)     // rotor_front_face1
+            (0 0 3 4)     // rotor_front_face2
+            (0 0 4 5)     // rotor_front_face3
+            (0 0 5 6)     // rotor_front_face4
+            (0 0 6 1)     // rotor_front_face21
+            (7 7 8 9)     // rotor_back_face5
+            (7 7 9 10)     // rotor_back_face6
+            (7 7 10 11)     // rotor_back_face7
+            (7 7 11 12)     // rotor_back_face8
+            (7 7 12 13)     // rotor_back_face9
+            (7 7 13 8)     // rotor_back_face11
+//	    (0 7 7 0)
+        );
+    }
+);

@@ -1,0 +1,140 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1;
+
+vertices
+(
+    (1.53080849893e-16 2.5 0.1)     //v1 ~stator_rotor_interface_top
+    (-2.16506350946 1.25 0.1)     //v2 ~stator_rotor_interface_top
+    (-2.16506350946 -1.25 0.1)     //v3 ~stator_rotor_interface_top
+    (-2.67968859893e-15 -2.5 0.1)     //v4 ~stator_rotor_interface_top
+    (2.16506350946 -1.25 0.1)     //v5 ~stator_rotor_interface_top
+    (2.16506350946 1.25 0.1)     //v6 ~stator_rotor_interface_top
+    (0 10.0 0.1)      //v7 ~bounding_box_top
+    (-10.0 10.0 0.1)      //v8 ~bounding_box_top
+    (-10.0 -10.0 0.1)      //v9 ~bounding_box_top
+    (0 -10.0 0.1)      //v10 ~bounding_box_top
+    (10.0 -10.0 0.1)      //v11 ~bounding_box_top
+    (10.0 10.0 0.1)      //v12 ~bounding_box_top
+    (1.53080849893e-16 2.5 -0.1)     //v19 ~stator_rotor_interface_bottom
+    (-2.16506350946 1.25 -0.1)     //v20 ~stator_rotor_interface_bottom
+    (-2.16506350946 -1.25 -0.1)     //v21 ~stator_rotor_interface_bottom
+    (-2.67968859893e-15 -2.5 -0.1)     //v22 ~stator_rotor_interface_bottom
+    (2.16506350946 -1.25 -0.1)     //v23 ~stator_rotor_interface_bottom
+    (2.16506350946 1.25 -0.1)     //v24 ~stator_rotor_interface_bottom
+    (0 10.0 -0.1)     //v13 ~bounding_box_bottom
+    (-10.0 10.0 -0.1)     //v14 ~bounding_box_bottom
+    (-10.0 -10.0 -0.1)     //v15 ~bounding_box_bottom
+    (0 -10.0 -0.1)     //v16 ~bounding_box_bottom
+    (10.0 -10.0 -0.1)     //v17 ~bounding_box_bottom
+    (10.0 10.0 -0.1)     //v18 ~bounding_box_bottom
+);
+
+blocks
+(
+    hex (12 13 1 0 18 19 7 6) (10 1 10) simpleGrading (1 1 1) //b1 ~stator
+    hex (13 14 2 1 19 20 8 7) (10 1 10) simpleGrading (1 1 1) //b2 ~stator
+    hex (14 15 3 2 20 21 9 8) (10 1 10) simpleGrading (1 1 1) //b3 ~stator
+    hex (15 16 4 3 21 22 10 9) (10 1 10) simpleGrading (1 1 1) //b4 ~stator
+    hex (16 17 5 4 22 23 11 10) (10 1 10) simpleGrading (1 1 1) //b5 ~stator
+    hex (17 12 0 5 23 18 6 11) (10 1 10) simpleGrading (1 1 1)  //b8 ~stator
+);
+
+edges
+(
+    arc 0 1 (-1.25 2.16506350946 0.1)     //e0
+    arc 1 2 (-2.5 1.41638472441e-15 0.1)     //e1
+    arc 2 3 (-1.25 -2.16506350946 0.1)     //e2
+    arc 3 4 (1.25 -2.16506350946 0.1)     //e3
+    arc 4 5 (2.5 -2.83276944882e-15 0.1)     //e4
+    arc 5 0 (1.25 2.16506350946 0.1)     //e5
+    arc 12 13 (-1.25 2.16506350946 -0.1)     //e6
+    arc 13 14 (-2.5 1.41638472441e-15 -0.1)     //e7
+    arc 14 15 (-1.25 -2.16506350946 -0.1)     //e8
+    arc 15 16 (1.25 -2.16506350946 -0.1)     //e9
+    arc 16 17 (2.5 -2.83276944882e-15 -0.1)     //e10
+    arc 17 12 (1.25 2.16506350946 -0.1)     //e11
+);
+
+boundary
+(
+    inlet
+    {
+        type patch;
+        faces
+        ( 
+            (20 19 7 8)        
+        );
+    }
+
+    outlet
+    {
+        type patch;
+        faces
+        ( 
+            (22 23 11 10)        
+        );
+    }
+
+    topandbottom
+    {
+        type patch;
+
+        faces
+        ( 
+            (23 18 6 11)
+            (18 19 7 6)
+            (21 20 8 9)
+            (22 21 9 10)
+        );
+    }
+
+    couple2
+    {
+        type     patch;
+        faces
+        (
+            (12 13 1 0) // stator_face1
+            (13 14 2 1) // stator_face2
+            (14 15 3 2) // stator_face3
+            (15 16 4 3) // stator_face4
+            (16 17 5 4) // stator_face5
+            (17 12 0 5) // stator_face6
+        );
+    }
+
+    frontandback
+    {
+        type empty;
+        faces
+        (
+            (0 1 7 6)     // stator_front_face1
+            (1 2 8 7)     // stator_front_face2
+            (2 3 9 8)     // stator_front_face3
+            (3 4 10 9)     // stator_front_face4
+            (4 5 11 10)     // stator_front_face5
+            (5 0 6 11)     // stator_front_face22
+            (12 13 19 18)     // stator_back_face6
+            (13 14 20 19)     // stator_back_face7
+            (14 15 21 20)     // stator_back_face8
+            (15 16 22 21)     // stator_back_face9
+            (16 17 23 22)     // stator_back_face10
+            (17 12 18 23)     // stator_back_face24
+        );
+    }
+);
