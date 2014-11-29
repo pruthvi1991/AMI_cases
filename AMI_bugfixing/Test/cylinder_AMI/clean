@@ -12,3 +12,4 @@ done
 rm -r 0.*
 rm log.pimpleDyMFoam log.decomposePar log.reconstructPar
 rm -r processor*
+cleanCase
