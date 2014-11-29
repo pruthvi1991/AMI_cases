@@ -10,6 +10,6 @@ do
 rm -r $i*
 done
 rm -r 0.*
-rm log.pimpleDyMFoam log.decomposePar log.reconstructPar
-rm -r processor*
-cleanCase
+rm -r log.pimpleDyMFoam log.decomposePar log.reconstructPar
+rm -r processor* postProcessing
+

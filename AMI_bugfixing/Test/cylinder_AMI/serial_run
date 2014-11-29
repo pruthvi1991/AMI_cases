@@ -6,7 +6,7 @@ cd ${0%/*} || exit 1    # run from this directory
 
 runApplication topoSet
 cp -r 0_org/* 0/
-runApplication mapFields ../simple -sourceTime latestTime -consistent
+#runApplication mapFields ../simple -sourceTime latestTime -consistent
 runApplication pimpleDyMFoam
 paraFoam
 

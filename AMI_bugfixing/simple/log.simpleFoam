@@ -1,0 +1,52 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 2.3.x-9606d1dace48
+Exec   : simpleFoam
+Date   : Nov 28 2014
+Time   : 20:46:18
+Host   : "jujjamachine"
+PID    : 8626
+Case   : /home/jujja/GIT/AMI_cases/AMI_bugfixing/simple
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading field p
+
+
+
+--> FOAM FATAL ERROR: 
+Attempt to cast type patch to type lduInterface
+
+    From function refCast<To>(From&)
+    in file /opt/OpenFOAM/OpenFOAM-2.3.x/src/OpenFOAM/lnInclude/typeInfo.H at line 114.
+
+FOAM aborting
+
+#0  Foam::error::printStack(Foam::Ostream&) at ??:?
+#1  Foam::error::abort() at ??:?
+#2  Foam::lduInterface const& Foam::refCast<Foam::lduInterface const, Foam::fvPatch const>(Foam::fvPatch const&) at ??:?
+#3  Foam::cyclicAMIFvPatchField<double>::cyclicAMIFvPatchField(Foam::fvPatch const&, Foam::DimensionedField<double, Foam::volMesh> const&, Foam::dictionary const&) at ??:?
+#4  Foam::fvPatchField<double>::adddictionaryConstructorToTable<Foam::cyclicAMIFvPatchField<double> >::New(Foam::fvPatch const&, Foam::DimensionedField<double, Foam::volMesh> const&, Foam::dictionary const&) at ??:?
+#5  Foam::fvPatchField<double>::New(Foam::fvPatch const&, Foam::DimensionedField<double, Foam::volMesh> const&, Foam::dictionary const&) at ??:?
+#6  Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>::GeometricBoundaryField::readField(Foam::DimensionedField<double, Foam::volMesh> const&, Foam::dictionary const&) at ??:?
+#7  Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>::readFields(Foam::dictionary const&) at ??:?
+#8  Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>::readFields() at ??:?
+#9  Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>::GeometricField(Foam::IOobject const&, Foam::fvMesh const&) at ??:?
+#10  
+ at ??:?
+#11  __libc_start_main in "/lib/x86_64-linux-gnu/libc.so.6"
+#12  
+ at ??:?
+Aborted (core dumped)
