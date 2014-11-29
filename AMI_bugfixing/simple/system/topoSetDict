@@ -1,0 +1,59 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    // Get both sides of ami
+    // ~~~~~~~~~~~~~~~~~~~~~
+
+    // Get all faces in cellSet
+    {
+        name    AMI;
+        type    faceSet;
+        action  new;
+        source  patchToFace;
+        sourceInfo
+        {
+            name "couple.*";
+        }
+    }
+    // Create cellZone for moving cells in inlet channel
+    {
+        name    rotor;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            p1     (0 0 0.1);
+	    p2	   (0 0 -0.1); 
+	    radius        2.5;
+        }
+    }
+    {
+        name    rotor;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+            set     rotor;
+        }
+    }
+
+);
+
+// ************************************************************************* //

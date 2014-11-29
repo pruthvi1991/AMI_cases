@@ -1,0 +1,208 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1;
+
+vertices
+(
+    (0 0 0.1)      //v0 ~rotor_stator_interface_top
+    (1.53080849893e-16 2.5 0.1)      //v1 ~rotor_stator_interface_top
+    (-2.16506350946 1.25 0.1)      //v2 ~rotor_stator_interface_top
+    (-2.16506350946 -1.25 0.1)      //v3 ~rotor_stator_interface_top
+    (-2.67968859893e-15 -2.5 0.1)      //v4 ~rotor_stator_interface_top
+    (2.16506350946 -1.25 0.1)      //v5 ~rotor_stator_interface_top
+    (2.16506350946 1.25 0.1)      //v6 ~rotor_stator_interface_top
+    (0 5 0.1)      //v7 ~bounding_box_top
+    (-5 5 0.1)      //v8 ~bounding_box_top
+    (-5 -5 0.1)      //v9 ~bounding_box_top
+    (0 -5 0.1)      //v10 ~bounding_box_top
+    (10 -5 0.1)      //v11 ~bounding_box_top
+    (10 5 0.1)      //v12 ~bounding_box_top
+    (0 0 -0.1)     //v13 ~rotor_stator_interface_bottom
+    (1.53080849893e-16 2.5 -0.1)     //v14 ~rotor_stator_interface_bottom
+    (-2.16506350946 1.25 -0.1)     //v15 ~rotor_stator_interface_bottom
+    (-2.16506350946 -1.25 -0.1)     //v16 ~rotor_stator_interface_bottom
+    (-2.67968859893e-15 -2.5 -0.1)     //v17 ~rotor_stator_interface_bottom
+    (2.16506350946 -1.25 -0.1)     //v18 ~rotor_stator_interface_bottom
+    (2.16506350946 1.25 -0.1)     //v19 ~rotor_stator_interface_bottom
+    (0 5 -0.1)     //v20 ~bounding_box_bottom
+    (-5 5 -0.1)     //v21 ~bounding_box_bottom
+    (-5 -5 -0.1)     //v22 ~bounding_box_bottom
+    (0 -5 -0.1)     //v23 ~bounding_box_bottom
+    (10 -5 -0.1)     //v24 ~bounding_box_bottom
+    (10 5 -0.1)     //v25 ~bounding_box_bottom
+    (1.53080849893e-16 2.5 0.1)     //v26 ~stator_rotor_interface_top
+    (-2.16506350946 1.25 0.1)     //v27 ~stator_rotor_interface_top
+    (-2.16506350946 -1.25 0.1)     //v28 ~stator_rotor_interface_top
+    (-2.67968859893e-15 -2.5 0.1)     //v29 ~stator_rotor_interface_top
+    (2.16506350946 -1.25 0.1)     //v30 ~stator_rotor_interface_top
+    (2.16506350946 1.25 0.1)     //v31 ~stator_rotor_interface_top
+    (1.53080849893e-16 2.5 -0.1)     //v32 ~stator_rotor_interface_bottom
+    (-2.16506350946 1.25 -0.1)     //v33 ~stator_rotor_interface_bottom
+    (-2.16506350946 -1.25 -0.1)     //v34 ~stator_rotor_interface_bottom
+    (-2.67968859893e-15 -2.5 -0.1)     //v35 ~stator_rotor_interface_bottom
+    (2.16506350946 -1.25 -0.1)     //v36 ~stator_rotor_interface_bottom
+    (2.16506350946 1.25 -0.1)     //v37 ~stator_rotor_interface_bottom
+);
+
+blocks
+(
+    hex (0 0 13 13 2 1 14 15) (10 1 10) simpleGrading ( 1 1 1) //b1 ~rotor
+    hex (0 0 13 13 3 2 15 16) (10 1 10) simpleGrading ( 1 1 1) //b2 ~rotor
+    hex (0 0 13 13 4 3 16 17) (10 1 10) simpleGrading ( 1 1 1) //b3 ~rotor
+    hex (0 0 13 13 5 4 17 18) (10 1 10) simpleGrading ( 1 1 1) //b4 ~rotor
+    hex (0 0 13 13 6 5 18 19) (10 1 10) simpleGrading ( 1 1 1) //b5 ~rotor
+    hex (0 0 13 13 1 6 19 14) (10 1 10) simpleGrading (1 1 1)  //b12 ~rotor
+    hex (32 33 27 26 20 21 8 7) (10 1 10) simpleGrading (1 1 1) //b6 ~stator
+    hex (33 34 28 27 21 22 9 8) (10 1 10) simpleGrading (1 1 1) //b7 ~stator
+    hex (34 35 29 28 22 23 10 9) (10 1 10) simpleGrading (1 1 1) //b8 ~stator
+    hex (35 36 30 29 23 24 11 10) (10 1 10) simpleGrading (1 1 1) //b9 ~stator
+    hex (36 37 31 30 24 25 12 11) (10 1 10) simpleGrading (1 1 1) //b10 ~stator
+    hex (37 32 26 31 25 20 7 12) (10 1 10) simpleGrading (1 1 1)  //b11 ~stator
+);
+
+edges
+(
+    arc 1 2 (-2.5 1.41638472441e-15 0.1)     //e1
+    arc 2 3 (-1.25 -2.16506350946 0.1)     //e2
+    arc 3 4 (1.25 -2.16506350946 0.1)     //e3
+    arc 4 5 (2.5 -2.83276944882e-15 0.1)     //e4
+    arc 5 6 (1.25 2.16506350946 0.1)     //e5
+    arc 6 1 (1.25 2.16506350946 0.1)     //e6
+    arc 14 15 (-1.25 2.16506350946 -0.1)     //e7
+    arc 15 16 (-2.5 1.41638472441e-15 -0.1)     //e8
+    arc 16 17 (-1.25 -2.16506350946 -0.1)     //e9
+    arc 17 18 (1.25 -2.16506350946 -0.1)     //e10
+    arc 18 19 (2.5 -2.83276944882e-15 -0.1)     //e11
+    arc 19 14 (1.25 2.16506350946 -0.1)     //e12
+    arc 26 27 (-1.25 2.16506350946 0.1)     //e13
+    arc 27 28 (-2.5 1.41638472441e-15 0.1)     //e14
+    arc 28 29 (-1.25 -2.16506350946 0.1)     //e15
+    arc 29 30 (1.25 -2.16506350946 0.1)     //e16
+    arc 30 31 (2.5 -2.83276944882e-15 0.1)     //e17
+    arc 31 26 (1.25 2.16506350946 0.1)     //e18
+    arc 32 33 (-1.25 2.16506350946 -0.1)     //e19
+    arc 33 34 (-2.5 1.41638472441e-15 -0.1)     //e20
+    arc 34 35 (-1.25 -2.16506350946 -0.1)     //e21
+    arc 35 36 (1.25 -2.16506350946 -0.1)     //e22
+    arc 36 37 (2.5 -2.83276944882e-15 -0.1)     //e23
+    arc 37 32 (1.25 2.16506350946 -0.1)     //e24
+);
+
+boundary
+(
+    inlet
+    {
+        type patch;
+        faces
+        ( 
+            (22 21 8 9)        
+        );
+    }
+
+    outlet
+    {
+        type patch;
+        faces
+        ( 
+            (24 25 12 11)        
+        );
+    }
+
+    topandbottom
+    {
+        type patch;
+
+        faces
+        ( 
+            (25 20 7 12)
+            (24 23 10 11)
+            (20 21 8 7)
+            (23 22 9 10)
+        );
+    }
+
+    AMI1
+    {
+        type     cyclicAMI;
+        neighbourPatch  AMI2;
+        transform    noOrdering;
+        faces
+        (
+            (15 14 1 2) // rotor_face1
+            (16 15 2 3) // rotor_face2
+            (17 16 3 4) // rotor_face3
+            (18 17 4 5) // rotor_face4
+            (19 18 5 6) // rotor_face5
+            (14 19 6 1) // rotor_face6
+        );
+    }
+
+    AMI2
+    {
+        type     cyclicAMI;
+        neighbourPatch  AMI1;
+        transform    noOrdering;
+        faces
+        (
+            (33 32 26 27) // stator_face1
+            (34 33 27 28) // stator_face2
+            (35 34 28 29) // stator_face3
+            (36 35 29 30) // stator_face4
+            (37 36 30 31) // stator_face5
+            (32 37 31 26) // stator_face6
+        );
+    }
+
+    frontandback
+    {
+        type empty;
+        faces
+        (
+            (0 0 1 2)     // rotor_front_face1
+            (0 0 2 3)     // rotor_front_face5
+            (0 0 3 4)     // rotor_front_face9
+            (0 0 4 5)     // rotor_front_face13
+            (0 0 5 6)     // rotor_front_face17
+            (0 0 6 1)     // rotor_front_face21
+            (26 7 8 27)     // stator_front_face2
+            (27 8 9 28)     // stator_front_face6
+            (28 9 10 29)     // stator_front_face10
+            (29 10 11 30)     // stator_front_face14
+            (30 11 12 31)     // stator_front_face18
+            (31 12 7 26)     // stator_front_face22
+            (13 13 14 15)     // rotor_back_face3
+            (13 13 15 16)     // rotor_back_face7
+            (13 13 16 17)     // rotor_back_face11
+            (13 13 17 18)     // rotor_back_face15
+            (13 13 18 19)     // rotor_back_face19
+            (13 13 19 14)     // rotor_back_face23
+            (33 32 20 21)     // stator_back_face4
+            (34 33 21 22)     // stator_back_face8
+            (35 34 22 23)     // stator_back_face12
+            (36 35 23 24)     // stator_back_face16
+            (37 36 24 25)     // stator_back_face20
+            (32 37 25 20)     // stator_back_face24
+	   // (0 13 13 0)       // Collapsed face
+        );
+    }
+);
+
+mergePatchPairs
+(
+);
+
