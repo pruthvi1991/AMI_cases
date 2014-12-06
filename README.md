@@ -14,15 +14,16 @@ Every case file in this repository has at least the following three files.
 3) Test : This file merges the rotor and stator into a single mesh. Run the script makeMesh. After this step go to 
    Test/cylinder_AMI/constant/polyMesh/boundary and add the following lines to both couple1 and couple2.
    
-   couple2 
-    {
-        type            cyclicAMI;
-        nFaces          60;
-        startFace       306735;
-	      neighbourPatch	couple1; // These are the lines that need to be added to the boundary file
-	      matchTolerance	0.0001;  // These are the lines that need to be added to the boundary file
-	      transform	noOrdering;    // These are the lines that need to be added to the boundary file
-	   }
+couple2
+
+        {
+	        type            cyclicAMI;
+	        nFaces          60;
+	        startFace       306735;
+	        neighbourPatch	couple1; // These are the lines that need to be added to the boundary file
+	        matchTolerance	0.0001;  // These are the lines that need to be added to the boundary file
+	        transform	noOrdering;    // These are the lines that need to be added to the boundary file
+        }
 	   
 4) Now we must be good to go. Run the serial_run or the parallel_run scripts. There is a topoSet command in both      the files which will select all the cells in the rotor region and mark them as a seperate cell region called       rotor.
 
