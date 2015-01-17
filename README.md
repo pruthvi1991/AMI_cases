@@ -1,7 +1,7 @@
 AMI_cases
 =========
 
-Repository for 2D rotor-stator type meshes
+Repository for 2D rotor-stator type meshes. Can be used to simulate an airfoil of arbitrary geometry with 3 DOF.
 
 Every case file in this repository has at least the following three files. 
 
