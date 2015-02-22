@@ -7,7 +7,7 @@ cd ${0%/*} || exit 1    # run from this directory
 # Make 3D mesh in slab of cells.
 #cd wingMotion_snappyHexMesh
 runApplication blockMesh
-#transformPoints -scale '(1 1 0.1)' 
+transformPoints -scale '(1 1 4.9)' 
 #runApplication topoSet
 runApplication surfaceFeatureExtract
 runApplication snappyHexMesh -overwrite

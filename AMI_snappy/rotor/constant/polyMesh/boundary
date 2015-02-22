@@ -21,47 +21,47 @@ FoamFile
     {
         type            patch;
         nFaces          0;
-        startFace       322090;
+        startFace       85643;
     }
     inlet
     {
         type            patch;
         nFaces          0;
-        startFace       322090;
+        startFace       85643;
     }
     outlet
     {
         type            patch;
         nFaces          0;
-        startFace       322090;
+        startFace       85643;
     }
     symFront
     {
         type            symmetryPlane;
         inGroups        1(symmetryPlane);
-        nFaces          3036;
-        startFace       322090;
+        nFaces          3700;
+        startFace       85643;
     }
     symBack
     {
         type            symmetryPlane;
         inGroups        1(symmetryPlane);
-        nFaces          3036;
-        startFace       325126;
+        nFaces          3706;
+        startFace       89343;
     }
     innercylinder
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          96;
-        startFace       328162;
+        nFaces          1984;
+        startFace       93049;
     }
     wing
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          920;
-        startFace       328258;
+        nFaces          672;
+        startFace       95033;
     }
 )
 

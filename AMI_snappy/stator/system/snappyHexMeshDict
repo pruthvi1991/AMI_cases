@@ -118,7 +118,7 @@ castellatedMeshControls
 
     refinementSurfaces
     {
-        wing
+        outercylinder
         {
             // Surface-wise min and max refinement level
             level (3 3);
@@ -149,11 +149,11 @@ castellatedMeshControls
 
     refinementRegions
     {
-        refinementBox
-        {
+//        refinementBox
+//       {
 //            mode inside;
 //            levels ((1e15 3));
-        }
+//        }
 //	  sphere
 //	  {
 //	      mode inside;

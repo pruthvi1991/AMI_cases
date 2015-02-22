@@ -95,7 +95,7 @@ castellatedMeshControls
     // Number of buffer layers between different levels.
     // 1 means normal 2:1 refinement restriction, larger means slower
     // refinement.
-    nCellsBetweenLevels 6;
+    nCellsBetweenLevels 6; //6
 
 
 
@@ -109,11 +109,18 @@ castellatedMeshControls
     	(
        	 {
         	 file "AMIinterface_scaledfine.extendedFeatureEdgeMesh";
-           	 level 0;
+           	 level 4;
+//
+//                 file "NACA0015.extendedFeatureEdgeMesh";
+//                 level 1;
+       	 }
+	 {
+//                 file "AMIinterface_scaledfine.extendedFeatureEdgeMesh";
+//                 level 1;
 
                  file "NACA0015.extendedFeatureEdgeMesh";
-                 level 11111111111;
-       	 }
+                 level 4;
+          }
 	);
 
 
@@ -132,12 +139,12 @@ castellatedMeshControls
         innercylinder
         {
             // Surface-wise min and max refinement level
-            level (1 1);
+            level (3 3);
         }
         wing
         {
             // Surface-wise min and max refinement level
-            level (3 3);
+            level (4 4);
         }
 //	sphere
 //          {
@@ -173,7 +180,7 @@ castellatedMeshControls
 	  cylinder
 	  {
 	      mode inside;
-	      levels ((1.0 5));
+	      levels ((1.0 3));
           }
     }
 
