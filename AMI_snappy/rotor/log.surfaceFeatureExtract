@@ -1,0 +1,136 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 2.3.x-9606d1dace48
+Exec   : surfaceFeatureExtract
+Date   : Feb 21 2015
+Time   : 19:54:30
+Host   : "jujjamachine"
+PID    : 6440
+Case   : /home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Reading surfaceFeatureExtractDict
+
+Surface            : "AMIinterface_scaledfine.stl"
+
+
+Feature line extraction is only valid on closed manifold surfaces.
+Statistics:
+Triangles    : 244
+Vertices     : 124
+Bounding Box : (-2 -1.99743 -0.2) (2 1.99743 0.2)
+
+
+Constructing feature set from included angle 150
+Selecting edges purely based on geometric tests: no
+
+Initial feature set:
+    feature points : 0
+    feature edges  : 124
+    of which
+        region edges   : 0
+        external edges : 124
+        internal edges : 0
+
+
+Final feature set:
+    points : 124
+    of which
+        convex             : 0
+        concave            : 0
+        mixed              : 0
+        non-feature        : 124
+    edges  : 124
+    of which
+        external edges     : 124
+        internal edges     : 0
+        flat edges         : 0
+        open edges         : 0
+        multiply connected : 0
+
+Writing extendedFeatureEdgeMesh to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/AMIinterface_scaledfine.extendedFeatureEdgeMesh"
+
+Writing extendedEdgeMesh components to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/AMIinterface_scaledfine"
+Writing convex feature points to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/AMIinterface_scaledfine_convexFeaturePts.obj"
+Writing concave feature points to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/AMIinterface_scaledfine_concaveFeaturePts.obj"
+Writing mixed feature points to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/AMIinterface_scaledfine_mixedFeaturePts.obj"
+Writing mixed feature point structure to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/AMIinterface_scaledfine_mixedFeaturePtsStructure.obj"
+Writing external edges to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/AMIinterface_scaledfine_externalEdges.obj"
+Writing internal edges to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/AMIinterface_scaledfine_internalEdges.obj"
+Writing flat edges to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/AMIinterface_scaledfine_flatEdges.obj"
+Writing open edges to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/AMIinterface_scaledfine_openEdges.obj"
+Writing multiple edges to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/AMIinterface_scaledfine_multipleEdges.obj"
+Writing region edges to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/AMIinterface_scaledfine_regionEdges.obj"
+Writing edge directions to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/AMIinterface_scaledfine_edgeDirections.obj"
+
+Writing featureEdgeMesh to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/triSurface/AMIinterface_scaledfine.eMesh"
+
+Surface            : "NACA0015.stl"
+
+
+Feature line extraction is only valid on closed manifold surfaces.
+Statistics:
+Triangles    : 7988
+Vertices     : 3996
+Bounding Box : (-0.152333 -0.034279 -0.5) (0.304667 0.034279 0.5)
+
+
+Constructing feature set from included angle 150
+Selecting edges purely based on geometric tests: no
+
+Initial feature set:
+    feature points : 2
+    feature edges  : 3997
+    of which
+        region edges   : 0
+        external edges : 3997
+        internal edges : 0
+
+
+Final feature set:
+    points : 3996
+    of which
+        convex             : 2
+        concave            : 0
+        mixed              : 0
+        non-feature        : 3994
+    edges  : 3997
+    of which
+        external edges     : 3997
+        internal edges     : 0
+        flat edges         : 0
+        open edges         : 0
+        multiply connected : 0
+
+Writing extendedFeatureEdgeMesh to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/NACA0015.extendedFeatureEdgeMesh"
+
+Writing extendedEdgeMesh components to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/NACA0015"
+Writing convex feature points to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/NACA0015_convexFeaturePts.obj"
+Writing concave feature points to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/NACA0015_concaveFeaturePts.obj"
+Writing mixed feature points to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/NACA0015_mixedFeaturePts.obj"
+Writing mixed feature point structure to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/NACA0015_mixedFeaturePtsStructure.obj"
+Writing external edges to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/NACA0015_externalEdges.obj"
+Writing internal edges to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/NACA0015_internalEdges.obj"
+Writing flat edges to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/NACA0015_flatEdges.obj"
+Writing open edges to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/NACA0015_openEdges.obj"
+Writing multiple edges to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/NACA0015_multipleEdges.obj"
+Writing region edges to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/NACA0015_regionEdges.obj"
+Writing edge directions to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/extendedFeatureEdgeMesh/NACA0015_edgeDirections.obj"
+
+Writing featureEdgeMesh to "/home/jujja/OpenFOAM/root-2.3.x/run/tutorials/incompressible/pimpleDyMFoam/AMI_cases/AMI_snappy/rotor/constant/triSurface/NACA0015.eMesh"
+
+ExecutionTime = 0.11 s  ClockTime = 0 s
+
+End
+
