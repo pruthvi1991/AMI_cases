@@ -5,33 +5,20 @@
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
-FoamFile
+
+topandbottom
 {
-    version     2.0;
-    format      ascii;
-    class       dictionary;
-    location    "constant";
-    object      dynamicMeshDict;
-}
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-dynamicFvMesh   solidBodyMotionFvMesh;
-
-motionSolverLibs ( "libfvMotionSolvers.so" );
-
-solidBodyMotionFvMeshCoeffs
-{
-    cellZone        rotor;
-
-    solidBodyMotionFunction  oscillatingRotatingMotion; //rotatingMotion;
-    oscillatingRotatingMotionCoeffs //rotatingMotionCoeffs
-    {
-        origin        (0 0 0);
-        //axis          (0 0 1);
-	amplitude     (0 0 70);
-        omega         0.174532925; // rad/s
-    }
+    type slip;
 }
 
+front
+{
+    type empty
+}
+
+back
+{
+    type empty;
+}
 
 // ************************************************************************* //

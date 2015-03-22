@@ -32,23 +32,16 @@ geometry
    {
         type    triSurfaceMesh;
 	scale	1;
-        name    innercylinder;
+        name    innerCylinder;
     }
 
     NACA0015.stl
     {
         type    triSurfaceMesh;
-//        scale   10;
+        scale   1;
         name    wing;
     }
 
-//    refinementBox
-//    {
-//        type    searchableBox;
-//        min     ( -4 -4 -1); //0.15 -0.1 -1
-//        max     ( 4  4  1); //0.6   0.1  1
-//    }
-//
     cylinder
     {
 	  type   searchableCylinder;    // region defined by bounding sphere 
@@ -56,12 +49,6 @@ geometry
 	  point2 (0 0 0.02); 
           radius 0.75; 
     }
-//     sphere
-//      {
-//          type   searchableSphere;    // region defined by bounding sphere
-//          centre (0 0 0);
-//          radius 0.05;
-//      }
 
 };
 
@@ -108,15 +95,11 @@ castellatedMeshControls
 	features
     	(
        	 {
+
         	 file "AMIinterface_scaledfine.extendedFeatureEdgeMesh";
            	 level 4;
-//
-//                 file "NACA0015.extendedFeatureEdgeMesh";
-//                 level 1;
        	 }
 	 {
-//                 file "AMIinterface_scaledfine.extendedFeatureEdgeMesh";
-//                 level 1;
 
                  file "NACA0015.extendedFeatureEdgeMesh";
                  level 4;
@@ -136,20 +119,23 @@ castellatedMeshControls
 
     refinementSurfaces
     {
-        innercylinder
+        innerCylinder
         {
             // Surface-wise min and max refinement level
             level (3 3);
+
+	    patchInfo 
+       	    { 
+           	 type     patch; 
+       	    }
+	    
         }
+
         wing
         {
             // Surface-wise min and max refinement level
             level (4 4);
         }
-//	sphere
-//          {
-//	      level (5 5);
-//          }
 
     }
 
@@ -180,7 +166,7 @@ castellatedMeshControls
 	  cylinder
 	  {
 	      mode inside;
-	      levels ((1.0 3));
+	      levels ((1.0 4));
           }
     }
 
@@ -254,7 +240,7 @@ addLayersControls
     {
         wing
         {
-            nSurfaceLayers 2;
+            nSurfaceLayers 3;
         }
 	
         innercylinder

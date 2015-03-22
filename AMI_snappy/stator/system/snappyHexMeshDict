@@ -26,34 +26,15 @@ addLayers       true;
 // - to specify refinement for any mesh cell intersecting it
 // - to specify refinement for any mesh cell inside/outside/near
 // - to 'snap' the mesh boundary to the surface
+
 geometry
 {
     AMIinterface_scaledfine.stl
     {
         type    triSurfaceMesh;
-//	scale	1;
-        name    outercylinder;
+	scale	1;
+        name    outerCylinder;
     }
-
-//    refinementBox
-//    {
-//        type    searchableBox;
-//        min     ( -4 -4 -1); //0.15 -0.1 -1
-//        max     ( 4  4  1); //0.6   0.1  1
-//    }
-//
-//    sphere
-//    {
-//	    type   searchableSphere;    // region defined by bounding sphere 
-//          centre (0 0 0); 
-//          radius 0.9; 
-//    }
-//     sphere
-//      {
-//          type   searchableSphere;    // region defined by bounding sphere
-//          centre (0 0 0);
-//          radius 0.05;
-//      }
 
 };
 
@@ -101,7 +82,7 @@ castellatedMeshControls
     	(
        	 {
         	 file "AMIinterface_scaledfine.extendedFeatureEdgeMesh";
-           	 level 1;
+           	 level 4;
        	 }
 	);
 
@@ -118,15 +99,17 @@ castellatedMeshControls
 
     refinementSurfaces
     {
-        outercylinder
+        outerCylinder
         {
             // Surface-wise min and max refinement level
             level (3 3);
+
+	    patchInfo 
+       	    { 
+           	 type     patch; 
+           	
+       	    }
         }
-//	sphere
-//          {
-//	      level (5 5);
-//          }
 
     }
 
@@ -229,7 +212,7 @@ addLayersControls
     // Per final patch (so not geometry!) the layer information
     layers
     {
-        outercylinder
+        outerCylinder
         {
             nSurfaceLayers 2;
         }

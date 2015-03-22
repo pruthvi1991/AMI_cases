@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2.3.0                                 |
+|  \\    /   O peration     | Version:  2.3.x                                 |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -11,27 +11,15 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "constant";
-    object      dynamicMeshDict;
+    object      RASProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dynamicFvMesh   solidBodyMotionFvMesh;
+RASModel        laminar;
 
-motionSolverLibs ( "libfvMotionSolvers.so" );
+//turbulence      on;
 
-solidBodyMotionFvMeshCoeffs
-{
-    cellZone        rotor;
-
-    solidBodyMotionFunction  oscillatingRotatingMotion; //rotatingMotion;
-    oscillatingRotatingMotionCoeffs //rotatingMotionCoeffs
-    {
-        origin        (0 0 0);
-        //axis          (0 0 1);
-	amplitude     (0 0 70);
-        omega         0.174532925; // rad/s
-    }
-}
+//printCoeffs     on;
 
 
 // ************************************************************************* //

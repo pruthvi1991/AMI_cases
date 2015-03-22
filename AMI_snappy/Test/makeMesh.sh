@@ -6,9 +6,13 @@ cd ${0%/*} || exit 1    # run from this directory
 cp -r ../rotor rotor
 cp -r ../stator stator
 mergeMeshes -overwrite stator/ rotor/
-mv stator/ cylinder_AMI/
-#cd cylinder_AMI/
-#runApplication topoSet
+mv stator/ pimpleDyMFoam_AMI/
+cd pimpleDyMFoam_AMI/
+rm -r log*
+mv _clean.sh clean.sh
+mv system/createPatchDict_postmerged system/createPatchDict
+runApplication createPatch -overwrite
+runApplication topoSet
 paraFoam
 
 # ----------------------------------------------------------------- end-of-file

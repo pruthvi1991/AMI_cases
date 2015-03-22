@@ -1,8 +1,8 @@
 #i/bin/bash
 
 cd rotor/
-./clean
+./cleanCase.sh
 cd ../stator/
-./clean
+./cleanCase.sh
 cd ../Test/
-./clean
+./clean.sh

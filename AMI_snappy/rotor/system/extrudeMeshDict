@@ -39,7 +39,7 @@ expansionRatio      1.0;
 
 linearNormalCoeffs
 {
-    thickness       0.05;
+    thickness       1;
 }
 
 // Do front and back need to be merged? Usually only makes sense for 360

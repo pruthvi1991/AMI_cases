@@ -9,51 +9,54 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    object      topoSetDict;
+    class       volVectorField;
+    location    "0";
+    object      U;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-actions
-(
-    // Get both sides of ami
-    // ~~~~~~~~~~~~~~~~~~~~~
+#include        "include/initialConditions"
 
-    // Get all faces in cellSet
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform $flowVelocity;
+
+boundaryField
+{
+    #include "include/fixedInlet"
+
+    outlet
     {
-        name    AMI;
-        type    faceSet;
-        action  new;
-        source  patchToFace;
-        sourceInfo
-        {
-            name "AMI*";
-        }
-    }
-    // Create cellZone for moving cells in inlet channel
-    {
-        name    rotor;
-        type    cellSet;
-        action  new;
-        source  cylinderToCell;
-        sourceInfo
-        {
-            p1     (0 0 0.5);
-	    p2	   (0 0 -0.5); 
-	    radius        2;
-        }
-    }
-    {
-        name    rotor;
-        type    cellZoneSet;
-        action  new;
-        source  setToCellZone;
-        sourceInfo
-        {
-            set     rotor;
-        }
+        type            inletOutlet;
+        inletValue      uniform (0 0 0);
+        value           $internalField;
     }
 
-);
+    wing
+    {
+        type            movingWallVelocity;
+        value           uniform (0 0 0);
+    }
+    
+    rotor
+    {
+	type		movinWallVelocity;
+	value		uniform (0 0 0);
+    }
+
+    AMI1
+    {
+        type            cyclicAMI;
+        value           $internalField;
+    }
+
+    AMI2
+    {
+        type            cyclicAMI;
+        value           $internalField;
+    }
+    #include "include/frontBackTopBottomPatches"
+}
+
 
 // ************************************************************************* //
